@@ -3,14 +3,15 @@ public class InventoryBuilder {
     public Inventory build(){
         Inventory inventory = Inventory.getInstance();
         FileItemReader reader = new CsvItemReader();
-        reader.open(this.dataPath);
+        CsvItemReader.ItemQuantity itemQuantity;
         int count = 0;
-        String line;
-        reader.next(); // skip the header row
-        while((line = reader.next()) != null){
+        reader.open(this.dataPath);
+        reader.readHeader();
+        while((itemQuantity = reader.readItem()) != null){
             count++;
-            inventory.addItem(line);
+            inventory.addItem(itemQuantity.getItem(),itemQuantity.getQuantity());
         }
+        reader.readHeader();
         System.out.println(inventory.getInventory());
         System.out.println(count+" items added.");
         System.out.println("Inventory built!");

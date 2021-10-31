@@ -18,16 +18,7 @@ public class Inventory {
         return instance;
     }
 
-    public boolean addItem(String itemStr){
-        String[] itemData = itemStr.split(",");
-        if(itemData.length!=4){
-            return false;
-        }
-        String category = itemData[0];
-        String name = itemData[1];
-        int quantity = Integer.parseInt(itemData[2]);
-        double price = Double.parseDouble(itemData[3]);
-        Item item = new Item(category, name, price);
+    public boolean addItem(Item item, int quantity){
         inventory.put(item, quantity);
         return true;
     }
