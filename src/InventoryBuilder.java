@@ -11,7 +11,6 @@ public class InventoryBuilder {
             count++;
             inventory.addItem(itemQuantity.getItem(),itemQuantity.getQuantity());
         }
-        reader.readHeader();
         System.out.println(inventory.getInventory());
         System.out.println(count+" items added.");
         System.out.println("Inventory built!");

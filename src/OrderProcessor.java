@@ -7,7 +7,7 @@ public class OrderProcessor {
         // generate output total amount csv
 
         InventoryBuilder inventoryBuilder = new InventoryBuilder();
-        
+
         // inventory is a singleton class
         Inventory inventory = inventoryBuilder.setDataPath(Path.datasetPath).build();
 
