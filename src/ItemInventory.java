@@ -1,19 +1,17 @@
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
-public class Inventory {
+public class ItemInventory {
     private Map<Item, Integer> inventory;
-    private static Inventory instance = null;
+    private static ItemInventory instance = null;
 
-    private Inventory() {
+    private ItemInventory() {
         inventory = new HashMap<>();
     }
 
-    public static Inventory getInstance(){
+    public static ItemInventory getInstance(){
         if(instance==null){
-            instance = new Inventory();
+            instance = new ItemInventory();
         }
         return instance;
     }

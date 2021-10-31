@@ -1,13 +1,13 @@
-public class InventoryBuilder {
+public class ItemInventoryBuilder {
     private String dataPath;
-    public Inventory build(){
-        Inventory inventory = Inventory.getInstance();
-        FileItemReader reader = new CsvItemReader();
+    public ItemInventory build(){
+        ItemInventory inventory = ItemInventory.getInstance();
+        CsvReader<CsvItemReader.ItemQuantity> reader = new CsvItemReader();
         CsvItemReader.ItemQuantity itemQuantity;
         int count = 0;
         reader.open(this.dataPath);
         reader.readHeader();
-        while((itemQuantity = reader.readItem()) != null){
+        while((itemQuantity = (CsvItemReader.ItemQuantity) reader.read()) != null){
             count++;
             inventory.addItem(itemQuantity.getItem(),itemQuantity.getQuantity());
         }
@@ -17,7 +17,7 @@ public class InventoryBuilder {
         return inventory;
     }
 
-    public InventoryBuilder setDataPath(String dataPath) {
+    public ItemInventoryBuilder setDataPath(String dataPath) {
         this.dataPath = dataPath;
         return this;
     }

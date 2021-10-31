@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.Scanner;
 
-public class CsvItemReader implements CsvReader<CsvItemReader.ItemQuantity> {
+public class CsvCardReader implements CsvReader<Card> {
     BufferedReader br;
     boolean headerRead = false;
     String[] headers = new String[0];
@@ -30,23 +30,15 @@ public class CsvItemReader implements CsvReader<CsvItemReader.ItemQuantity> {
         }
         return this.headers;
     }
-    public ItemQuantity read(){
+    public Card read(){
         try {
             if(!headerRead){
                 readHeader();
             }
             String line = this.br.readLine();
             if(line!=null){
-                String[] itemData = line.split(",");
-            if(itemData.length!=4){
-                return null;
-            }
-            String category = itemData[0];
-            String name = itemData[1];
-            int quantity = Integer.parseInt(itemData[2]);
-            double price = Double.parseDouble(itemData[3]);
-            Item item = new Item(category, name, price);
-            return new ItemQuantity(item, quantity);
+                String number = line;
+                return new Card(number);
             }else{
                 return null;
             }
@@ -61,24 +53,6 @@ public class CsvItemReader implements CsvReader<CsvItemReader.ItemQuantity> {
             this.br.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    class ItemQuantity{
-        Item item;
-        int quantity;
-
-        public ItemQuantity(Item item, int quantity) {
-            this.item = item;
-            this.quantity = quantity;
-        }
-
-        public Item getItem() {
-            return item;
-        }
-
-        public int getQuantity() {
-            return quantity;
         }
     }
 }
