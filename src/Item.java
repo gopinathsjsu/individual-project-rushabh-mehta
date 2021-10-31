@@ -1,9 +1,11 @@
+import java.util.Objects;
+
 public class Item {
     private String category;
     private String name;
     private double price;
 
-    public Item(String category, String name, int quantity, double price) {
+    public Item(String category, String name, double price) {
         this.category = category;
         this.name = name;
         this.price = price;
@@ -31,5 +33,27 @@ public class Item {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Double.compare(item.price, price) == 0 && category.equals(item.category) && name.equals(item.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(category, name, price);
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "category='" + category + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

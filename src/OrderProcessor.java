@@ -6,10 +6,10 @@ public class OrderProcessor {
         // process order
         // generate output total amount csv
 
+        InventoryBuilder inventoryBuilder = new InventoryBuilder();
         // inventory is a singleton class
-        Inventory inventory = Inventory.getInstance();
+        Inventory inventory = inventoryBuilder.setDataPath(Path.datasetPath).build();
 
-        
 
     }
 }
