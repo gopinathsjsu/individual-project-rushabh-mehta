@@ -7,38 +7,35 @@ import order.state.*;
 
 public class OrderProcessor {
     private OrderState currState;
-    private OrderState orderInit;
-    private OrderState orderRead;
-    private OrderState orderDBValidated;
-    private OrderState orderRestrictionValidated;
-    private OrderState orderCompValidated;
-    private OrderState orderBillGenerated;
-    private OrderState orderCardDetailsSaved;
-    private OrderState orderProcessed;
-    private OrderState orderInvalid;
+    private final OrderState orderInit;
+    private final OrderState orderRead;
+    private final OrderState orderDBValidated;
+    private final OrderState orderRestrictionValidated;
+    private final OrderState orderBillGenerated;
+    private final OrderState orderCardDetailsSaved;
+    private final OrderState orderProcessed;
+    private final OrderState orderInvalid;
     Order order;
 
     public OrderProcessor(){
-        orderInit = new OrderInit(this);
-        orderRead = new OrderRead(this);
-        orderDBValidated = new OrderDBValidated(this);
-        orderRestrictionValidated = new OrderRestrictionValidated(this);
-        orderCompValidated = new OrderCompValidated(this);
-        orderCardDetailsSaved = new OrderBillGenerated(this);
-        orderCardDetailsSaved = new OrderCardDetailsSaved(this);
-        orderProcessed = new OrderProcessed(this);
-        orderInvalid = new OrderInvalid(this);
-        currState = orderInit;
+        this.orderInit = new OrderInit(this);
+        this.orderRead = new OrderRead(this);
+        this.orderDBValidated = new OrderDBValidated(this);
+        this.orderRestrictionValidated = new OrderRestrictionValidated(this);
+        this.orderBillGenerated = new OrderBillGenerated(this);
+        this.orderCardDetailsSaved = new OrderCardDetailsSaved(this);
+        this.orderProcessed = new OrderProcessed(this);
+        this.orderInvalid = new OrderInvalid(this);
+        this.currState = this.orderInit;
     }
 
-    public int processOrder(String path){
+    public void processOrder(String path){
         this.order = currState.read(path);
         currState.checkStock(order);
         currState.checkOrderRestrictions(order);
-//        currState.generateBill();
-//        currState.saveCardDetails();
-//        currState.markOrderCompleted();
-        return -1;
+        currState.generateBill(order);
+        currState.saveCardDetails(order);
+        currState.markOrderCompleted(order);
     }
 
     public void setCurrState(OrderStates nextState) {
@@ -54,6 +51,15 @@ public class OrderProcessor {
                 break;
             case RESTRICTIONVALIDATED:
                 this.currState = orderRestrictionValidated;
+                break;
+            case BILLGENERATED:
+                this.currState = orderBillGenerated;
+                break;
+            case CARDDETAILSSAVED:
+                this.currState = orderCardDetailsSaved;
+                break;
+            case ORDERPROCESSED:
+                this.currState = orderProcessed;
                 break;
         }
     }

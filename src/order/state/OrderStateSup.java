@@ -21,8 +21,24 @@ public class OrderStateSup implements OrderState{
     public void checkStock(Order order) {
         System.out.println("Invalid call!");
     }
+
+    @Override
     public void checkOrderRestrictions(Order order){
         System.out.println("Invalid call");
     }
 
+    @Override
+    public void generateBill(Order order) {
+        System.out.println("Invalid state");
+    }
+
+    @Override
+    public void saveCardDetails(Order order) {
+        System.out.println("Invalid state");
+    }
+
+    @Override
+    public void markOrderCompleted(Order order) {
+        System.out.println("Invalid state");
+    }
 }

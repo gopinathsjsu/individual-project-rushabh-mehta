@@ -46,7 +46,7 @@ public class OrderDBValidated extends OrderStateSup{
             orderProcessor.setCurrState(OrderStates.INVALID);
         }else{
             System.out.println("Restrictions met!");
-            orderProcessor.setCurrState(OrderStates.DBVALIDATED);
+            orderProcessor.setCurrState(OrderStates.RESTRICTIONVALIDATED);
         }
     }
 }
