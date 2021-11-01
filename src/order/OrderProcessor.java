@@ -34,8 +34,7 @@ public class OrderProcessor {
     public int processOrder(String path){
         this.order = currState.read(path);
         currState.checkStock(order);
-
-//        currState.checkOrderRestrictions();
+        currState.checkOrderRestrictions(order);
 //        currState.generateBill();
 //        currState.saveCardDetails();
 //        currState.markOrderCompleted();
@@ -52,6 +51,9 @@ public class OrderProcessor {
                 break;
             case DBVALIDATED:
                 this.currState = orderDBValidated;
+                break;
+            case RESTRICTIONVALIDATED:
+                this.currState = orderRestrictionValidated;
                 break;
         }
     }

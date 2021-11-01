@@ -10,6 +10,7 @@ public class OrderStateSup implements OrderState{
         this.orderProcessor = orderProcessor;
     }
 
+    //TODO handle failure cases
     @Override
     public Order read(String path) {
         System.out.println("Order already read!");
@@ -19,6 +20,9 @@ public class OrderStateSup implements OrderState{
     @Override
     public void checkStock(Order order) {
         System.out.println("Invalid call!");
+    }
+    public void checkOrderRestrictions(Order order){
+        System.out.println("Invalid call");
     }
 
 }

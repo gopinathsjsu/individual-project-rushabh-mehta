@@ -29,7 +29,7 @@ public class OrderRead extends OrderStateSup{
         }
         // TODO write to output file
         if(invalidItems.size()>0){
-            System.out.println("Please correct quantities.");
+            System.out.println("Please correct quantities to meet inventory stock.");
             for(OrderItem item : invalidItems){
                 System.out.println(item);
             }

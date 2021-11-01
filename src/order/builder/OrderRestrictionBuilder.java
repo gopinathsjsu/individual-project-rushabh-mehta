@@ -16,7 +16,8 @@ public class OrderRestrictionBuilder implements RestrictionBuilder {
 
     @Override
     public OrderRestriction build() {
-        OrderRestriction orderRestriction = new OrderRestriction(map);
+        OrderRestriction orderRestriction = OrderRestriction.getInstance();
+        orderRestriction.setMap(this.map);
         System.out.println(orderRestriction);
         System.out.println("Order Restrictions set!");
         return orderRestriction;

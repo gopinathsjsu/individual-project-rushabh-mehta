@@ -4,5 +4,6 @@ public enum OrderStates {
     INIT,
     READ,
     DBVALIDATED,
+    RESTRICTIONVALIDATED,
     INVALID
 }
