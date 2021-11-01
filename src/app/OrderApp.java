@@ -13,16 +13,6 @@ import resources.Path;
 
 public class OrderApp {
     public static void main(String[] args){
-        // TODO prepare item database - DONE
-        // TODO prepare card database - DONE
-        // TODO read input order csv file - DONE
-        // TODO process order
-            // TODO
-
-        // TODO generate output total amount csv
-
-
-
         // create inventory of items
         ItemInventoryBuilder itemInventoryBuilder = new ItemInventoryBuilder();
         // item inventory is a singleton class
