@@ -10,7 +10,7 @@ import reader.CsvItemReader;
 import reader.CsvOrderReader;
 import reader.CsvReader;
 
-public class OrderBuilder implements Builder<Order, OrderBuilder> {
+public class OrderBuilder implements builder.OrderBuilder{
     private String dataPath;
     public Order build(){
         Order order = new Order();
