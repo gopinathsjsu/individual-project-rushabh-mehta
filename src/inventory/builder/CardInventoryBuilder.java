@@ -20,7 +20,7 @@ public class CardInventoryBuilder {
         }
         System.out.println(inventory.getInventory());
         System.out.println(count+" cards added.");
-        System.out.println("card.Card Inventory built!");
+        System.out.println("Card Inventory built!");
         return inventory;
     }
 
