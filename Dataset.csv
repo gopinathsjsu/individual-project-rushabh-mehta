@@ -1,4 +1,4 @@
-Category,Item,Quantity,Price/ Piece
+Category,item.Item,Quantity,Price/ Piece
 Essential,Milk,6,4.72
 Essential,Bread,8,2.98
 Essential,Oil,2,8.5

@@ -1,14 +1,26 @@
+package item;
+
 import java.util.Objects;
 
 public class Item {
     private String category;
     private String name;
     private double price;
+    private int quantity;
 
-    public Item(String category, String name, double price) {
+    public Item(String category, String name, double price, int quantity) {
         this.category = category;
         this.name = name;
         this.price = price;
+        this.quantity = quantity;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getCategory() {
@@ -50,10 +62,11 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
+        return "item.Item{" +
                 "category='" + category + '\'' +
                 ", name='" + name + '\'' +
                 ", price=" + price +
+                ", quantity=" + quantity +
                 '}';
     }
 }

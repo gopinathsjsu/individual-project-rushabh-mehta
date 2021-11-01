@@ -1,3 +1,5 @@
+package card;
+
 import java.util.Objects;
 
 public class Card {
@@ -30,7 +32,7 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card{" +
+        return "card.Card{" +
                 "number='" + number + '\'' +
                 '}';
     }

@@ -1,8 +1,12 @@
+package inventory;
+
+import item.Item;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class ItemInventory {
-    private Map<Item, Integer> inventory;
+    private Map<String, Item> inventory;
     private static ItemInventory instance = null;
 
     private ItemInventory() {
@@ -16,12 +20,12 @@ public class ItemInventory {
         return instance;
     }
 
-    public boolean addItem(Item item, int quantity){
-        inventory.put(item, quantity);
+    public boolean addItem(Item item){
+        inventory.put(item.getName(), item);
         return true;
     }
 
-    public Map<Item, Integer> getInventory() {
+    public Map<String, Item> getInventory() {
         return inventory;
     }
 }

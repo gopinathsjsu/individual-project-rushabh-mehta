@@ -1,7 +1,10 @@
-import java.io.*;
-import java.util.Scanner;
+package reader;
 
-public class CsvCardReader implements CsvReader<Card> {
+import item.Item;
+
+import java.io.*;
+
+public class CsvItemReader implements CsvReader<Item> {
     BufferedReader br;
     boolean headerRead = false;
     String[] headers = new String[0];
@@ -30,15 +33,22 @@ public class CsvCardReader implements CsvReader<Card> {
         }
         return this.headers;
     }
-    public Card read(){
+    public Item read(){
         try {
             if(!headerRead){
                 readHeader();
             }
             String line = this.br.readLine();
             if(line!=null){
-                String number = line;
-                return new Card(number);
+                String[] itemData = line.split(",");
+            if(itemData.length!=4){
+                return null;
+            }
+            String category = itemData[0];
+            String name = itemData[1];
+            int quantity = Integer.parseInt(itemData[2]);
+            double price = Double.parseDouble(itemData[3]);
+            return new Item(category, name, price, quantity);
             }else{
                 return null;
             }

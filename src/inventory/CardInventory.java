@@ -1,3 +1,7 @@
+package inventory;
+
+import card.Card;
+
 import java.util.HashSet;
 import java.util.Set;
 

@@ -1,3 +1,10 @@
+package inventory.builder;
+
+import card.Card;
+import inventory.CardInventory;
+import reader.CsvCardReader;
+import reader.CsvReader;
+
 public class CardInventoryBuilder {
     private String dataPath;
     public CardInventory build(){
@@ -7,13 +14,13 @@ public class CardInventoryBuilder {
         int count = 0;
         reader.open(this.dataPath);
         reader.readHeader();
-        while((card = (Card)reader.read()) != null){
+        while((card = reader.read()) != null){
             count++;
             inventory.addCard(card);
         }
         System.out.println(inventory.getInventory());
         System.out.println(count+" cards added.");
-        System.out.println("Card Inventory built!");
+        System.out.println("card.Card Inventory built!");
         return inventory;
     }
 

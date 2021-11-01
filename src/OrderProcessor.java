@@ -1,3 +1,9 @@
+import inventory.CardInventory;
+import inventory.builder.CardInventoryBuilder;
+import inventory.ItemInventory;
+import inventory.builder.ItemInventoryBuilder;
+import resources.Path;
+
 public class OrderProcessor {
     public static void main(String[] args){
         // TODO prepare item database - DONE
@@ -9,6 +15,7 @@ public class OrderProcessor {
 
         // TODO refactor to add builder interface
         // TODO refactor to add inventory interface
+        // TODO move classes into packages
 
 
         // create inventory of items
