@@ -1,5 +1,6 @@
 package app;
 
+import builder.RestrictionBuilder;
 import inventory.CardInventory;
 import inventory.ItemInventory;
 import inventory.builder.CardInventoryBuilder;
@@ -7,6 +8,7 @@ import inventory.builder.ItemInventoryBuilder;
 import order.Order;
 import order.OrderProcessor;
 import order.builder.OrderBuilder;
+import order.builder.OrderRestrictionBuilder;
 import resources.Path;
 
 public class OrderApp {
@@ -30,6 +32,10 @@ public class OrderApp {
         CardInventoryBuilder cardInventoryBuilder = new CardInventoryBuilder();
         // card inventory is a singleton class
         CardInventory cardInventory = cardInventoryBuilder.setDataPath(Path.cardDatasetPath).build();
+
+        OrderRestrictionBuilder orderRestrictionBuilder = new OrderRestrictionBuilder();
+        // TODO change restrictions to enum
+        orderRestrictionBuilder.setRestriction("Essentials",3).setRestriction("Luxury",4).setRestriction("Misc", 6).build();
 
         OrderProcessor orderProcessor = new OrderProcessor();
         orderProcessor.processOrder(Path.orderPath);

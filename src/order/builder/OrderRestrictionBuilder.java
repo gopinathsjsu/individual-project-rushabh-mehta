@@ -2,15 +2,29 @@ package order.builder;
 
 import builder.Builder;
 import builder.RestrictionBuilder;
+import order.OrderRestriction;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class OrderRestrictionBuilder implements RestrictionBuilder {
-    @Override
-    public Object build() {
-        return null;
+    Map<String, Integer> map;
+
+    public OrderRestrictionBuilder() {
+        this.map = new HashMap<>();
     }
 
     @Override
-    public Object setRestriction(String dataPath) {
-        return null;
+    public OrderRestriction build() {
+        OrderRestriction orderRestriction = new OrderRestriction(map);
+        System.out.println(orderRestriction);
+        System.out.println("Order Restrictions set!");
+        return orderRestriction;
+    }
+
+    @Override
+    public OrderRestrictionBuilder setRestriction(String category, int quantity) {
+        this.map.put(category, quantity);
+        return this;
     }
 }
