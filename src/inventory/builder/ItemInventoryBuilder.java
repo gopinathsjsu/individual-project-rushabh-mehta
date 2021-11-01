@@ -1,11 +1,12 @@
 package inventory.builder;
 
+import builder.Builder;
 import inventory.ItemInventory;
 import item.Item;
 import reader.CsvItemReader;
 import reader.CsvReader;
 
-public class ItemInventoryBuilder {
+public class ItemInventoryBuilder implements Builder<ItemInventory, ItemInventoryBuilder> {
     private String dataPath;
     public ItemInventory build(){
         ItemInventory inventory = ItemInventory.getInstance();

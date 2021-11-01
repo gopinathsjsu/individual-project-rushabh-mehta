@@ -1,5 +1,6 @@
 package order.builder;
 
+import builder.Builder;
 import inventory.ItemInventory;
 import inventory.builder.ItemInventoryBuilder;
 import item.Item;
@@ -9,10 +10,10 @@ import reader.CsvItemReader;
 import reader.CsvOrderReader;
 import reader.CsvReader;
 
-public class OrderBuilder {
+public class OrderBuilder implements Builder<Order, OrderBuilder> {
     private String dataPath;
     public Order build(){
-        Order order = Order.getInstance();
+        Order order = new Order();
         CsvReader<OrderItem> reader = new CsvOrderReader();
         int count = 0;
         reader.open(this.dataPath);

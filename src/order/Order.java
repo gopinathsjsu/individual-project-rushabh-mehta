@@ -7,18 +7,11 @@ import java.util.List;
 
 public class Order {
     private List<OrderItem> items;
-    private static Order instance=null;
 
-    private Order() {
+    public Order() {
         items = new ArrayList<>();
     }
 
-    public static Order getInstance(){
-        if(instance==null){
-            instance = new Order();
-        }
-        return instance;
-    }
     public List<OrderItem> getItems() {
         return items;
     }
