@@ -18,7 +18,7 @@ public class CardInventoryBuilder implements InventoryBuilder {
         reader.readHeader();
         while((card = reader.read()) != null){
             count++;
-            inventory.addCard(card);
+            inventory.add(card);
         }
         System.out.println(inventory.getInventory());
         System.out.println(count+" cards added.");

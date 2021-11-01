@@ -5,7 +5,7 @@ import item.Item;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ItemInventory {
+public class ItemInventory implements Inventory<Item,Map<String,Item>>{
     private Map<String, Item> inventory;
     private static ItemInventory instance = null;
 
@@ -20,7 +20,7 @@ public class ItemInventory {
         return instance;
     }
 
-    public boolean addItem(Item item){
+    public boolean add(Item item){
         inventory.put(item.getName(), item);
         return true;
     }

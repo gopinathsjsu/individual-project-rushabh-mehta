@@ -5,7 +5,7 @@ import card.Card;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CardInventory {
+public class CardInventory implements Inventory<Card,Set<Card>>{
     private Set<Card> inventory;
     private static CardInventory instance = null;
 
@@ -20,7 +20,7 @@ public class CardInventory {
         return instance;
     }
 
-    public boolean addCard(Card card){
+    public boolean add(Card card){
         inventory.add(card);
         return true;
     }

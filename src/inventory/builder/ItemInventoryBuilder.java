@@ -18,7 +18,7 @@ public class ItemInventoryBuilder implements InventoryBuilder {
         Item item;
         while((item = reader.read()) != null){
             count++;
-            inventory.addItem(item);
+            inventory.add(item);
         }
         System.out.println(inventory.getInventory());
         System.out.println(count+" items added.");
