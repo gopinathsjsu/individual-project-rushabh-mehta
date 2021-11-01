@@ -15,6 +15,7 @@ public class OrderProcessor {
     private OrderState orderBillGenerated;
     private OrderState orderCardDetailsSaved;
     private OrderState orderProcessed;
+    private OrderState orderInvalid;
     Order order;
 
     public OrderProcessor(){
@@ -26,11 +27,18 @@ public class OrderProcessor {
         orderCardDetailsSaved = new OrderBillGenerated(this);
         orderCardDetailsSaved = new OrderCardDetailsSaved(this);
         orderProcessed = new OrderProcessed(this);
+        orderInvalid = new OrderInvalid(this);
         currState = orderInit;
     }
 
     public int processOrder(String path){
         this.order = currState.read(path);
+        currState.checkStock(order);
+
+//        currState.checkOrderRestrictions();
+//        currState.generateBill();
+//        currState.saveCardDetails();
+//        currState.markOrderCompleted();
         return -1;
     }
 
@@ -38,6 +46,12 @@ public class OrderProcessor {
         switch (nextState){
             case READ:
                 this.currState = orderRead;
+                break;
+            case INVALID:
+                this.currState = orderInvalid;
+                break;
+            case DBVALIDATED:
+                this.currState = orderDBValidated;
                 break;
         }
     }

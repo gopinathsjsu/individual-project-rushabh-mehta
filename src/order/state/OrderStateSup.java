@@ -15,4 +15,10 @@ public class OrderStateSup implements OrderState{
         System.out.println("Order already read!");
         return null;
     }
+
+    @Override
+    public void checkStock(Order order) {
+        System.out.println("Invalid call!");
+    }
+
 }
