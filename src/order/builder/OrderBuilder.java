@@ -13,6 +13,7 @@ import reader.CsvReader;
 public class OrderBuilder implements builder.OrderBuilder{
     private String dataPath;
     public Order build(){
+        System.out.println("Reading order!");
         Order order = new Order();
         CsvReader<OrderItem> reader = new CsvOrderReader();
         int count = 0;
@@ -23,7 +24,6 @@ public class OrderBuilder implements builder.OrderBuilder{
             count++;
             order.addItem(item);
         }
-        System.out.println(order.getItems());
         System.out.println(count+" items added.");
         System.out.println("Order read!");
         return order;

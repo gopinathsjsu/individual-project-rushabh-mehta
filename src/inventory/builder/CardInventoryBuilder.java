@@ -10,6 +10,7 @@ import reader.CsvReader;
 public class CardInventoryBuilder implements InventoryBuilder {
     private String dataPath;
     public CardInventory build(){
+        System.out.println("Building card inventory!");
         CardInventory inventory = CardInventory.getInstance();
         CsvReader<Card> reader = new CsvCardReader();
         Card card;
@@ -20,7 +21,6 @@ public class CardInventoryBuilder implements InventoryBuilder {
             count++;
             inventory.add(card);
         }
-        System.out.println(inventory.getInventory());
         System.out.println(count+" cards added.");
         System.out.println("Card Inventory built!");
         return inventory;

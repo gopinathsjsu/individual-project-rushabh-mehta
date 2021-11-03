@@ -6,6 +6,9 @@ import order.Order;
 import order.OrderItem;
 import order.OrderProcessor;
 import order.OrderRestriction;
+import resources.Path;
+import writer.CsvWriter;
+import writer.Writer;
 
 import java.util.*;
 
@@ -39,10 +42,15 @@ public class OrderDBValidated extends OrderStateSup{
             }
         }
         if(invalidCategories.size()>0){
-            System.out.println("Please correct quantities to meet restriction cap.");
+            StringBuilder invalidMessage = new StringBuilder();
+            invalidMessage.append("Please correct quantities.");
+            invalidMessage.append("\n");
             for(String category : invalidCategories){
-                System.out.println(category);
+                invalidMessage.append(category);
+                invalidMessage.append("\n");
             }
+            Writer writer = new CsvWriter();
+            writer.write(Path.outputPath,invalidMessage);
             orderProcessor.setCurrState(OrderStates.INVALID);
         }else{
             System.out.println("Restrictions met!");

@@ -5,6 +5,9 @@ import item.Item;
 import order.Order;
 import order.OrderItem;
 import order.OrderProcessor;
+import resources.Path;
+import writer.CsvWriter;
+import writer.Writer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,10 +32,16 @@ public class OrderRead extends OrderStateSup{
         }
         // TODO write to output file
         if(invalidItems.size()>0){
-            System.out.println("Please correct quantities to meet inventory stock.");
+            StringBuilder invalidMessage = new StringBuilder();
+            invalidMessage.append("Please correct quantities.");
+            invalidMessage.append("\n");
+
             for(OrderItem item : invalidItems){
-                System.out.println(item);
+                invalidMessage.append(item.getName());
+                invalidMessage.append("\n");
             }
+            Writer writer = new CsvWriter();
+            writer.write(Path.outputPath,invalidMessage);
             orderProcessor.setCurrState(OrderStates.INVALID);
         }else{
             System.out.println("Inventory has enough stock!");

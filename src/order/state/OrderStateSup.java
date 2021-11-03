@@ -19,12 +19,12 @@ public class OrderStateSup implements OrderState{
 
     @Override
     public void checkStock(Order order) {
-        System.out.println("Invalid call!");
+        System.out.println("Invalid state!");
     }
 
     @Override
     public void checkOrderRestrictions(Order order){
-        System.out.println("Invalid call");
+        System.out.println("Invalid state");
     }
 
     @Override

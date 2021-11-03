@@ -5,6 +5,9 @@ import item.Item;
 import order.Order;
 import order.OrderItem;
 import order.OrderProcessor;
+import resources.Path;
+import writer.CsvWriter;
+import writer.Writer;
 
 import java.util.List;
 import java.util.Map;
@@ -24,7 +27,12 @@ public class OrderRestrictionValidated extends OrderStateSup{
             double price = inventory.get(name).getPrice();
             total = total + price*orderItem.getQuantity();
         }
-        System.out.println(total);
+        StringBuilder message = new StringBuilder();
+        message.append("Amt Paid");
+        message.append("\n");
+        message.append(total);
+        Writer writer = new CsvWriter();
+        writer.write(Path.outputPath,message);
         System.out.println("Bill generated!");
         orderProcessor.setCurrState(OrderStates.BILLGENERATED);
     }
