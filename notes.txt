@@ -1,0 +1,55 @@
+Publish all your work to a Github repository and submit the link to the same.
+Either make the repository public or add my user (mahenaz-sayyed) for viewing rights.
+In the read.me provide clear instructions to run the project (Including the exact instructions).
+After the instructions, explain the design pattern/patterns used and provide a class diagram of the same.
+Finally, add the screenshots of output files/ terminals/ etc to demonstrate the execution of test cases that will be provided 3 days prior to the submission. For example, I will give 2 input files, please capture screenshots of the command used to invoke the program, intermediate terminal screen, final output/ files.
+
+
+No UI is needed. Files to be supplied from the command line.
+Input files will be CSV files.
+
+You may choose up to 3 design patterns. Include a class diagram for your design. All submissions should be committed to the assigned Github repo. Please include a README file with instructions on how to build and run your application.
+
+
+TODO
+Refactor code to support running from command line - DONE
+Display cards as intermediate results - DONE
+TEST program on test cases - DONE
+
+Create README.md with instructions on how to build the program - DONE
+Explain Design Patterns Used - DONE
+Add screenshots of test cases - DONE
+Add class diagram -
+Make TA contributor -
+
+
+javac -d bin -sourcepath src src/OrderApp.java
+
+cd bin
+
+java OrderApp "/home/rushabh/Desktop/individual-project-rushabh-mehta/Dataset.csv" "/home/rushabh/Desktop/individual-project-rushabh-mehta/CreditCards.csv" "/home/rushabh/Desktop/individual-project-rushabh-mehta/Sample_Input_File.csv" "/home/rushabh/Desktop/individual-project-rushabh-mehta/result.csv"
+
+java OrderApp "/home/rushabh/Desktop/individual-project-rushabh-mehta/test_dataset.csv" "/home/rushabh/Desktop/individual-project-rushabh-mehta/test_card_dataset.csv" "/home/rushabh/Desktop/individual-project-rushabh-mehta/test_input_1.csv" "/home/rushabh/Desktop/individual-project-rushabh-mehta/result.csv"
+36.68
+
+java OrderApp "/home/rushabh/Desktop/individual-project-rushabh-mehta/test_dataset.csv" "/home/rushabh/Desktop/individual-project-rushabh-mehta/test_card_dataset.csv" "/home/rushabh/Desktop/individual-project-rushabh-mehta/test_input_2.csv" "/home/rushabh/Desktop/individual-project-rushabh-mehta/result.csv"
+Invalid state - Oil
+java OrderApp "/home/rushabh/Desktop/individual-project-rushabh-mehta/test_dataset.csv" "/home/rushabh/Desktop/individual-project-rushabh-mehta/test_card_dataset.csv" "/home/rushabh/Desktop/individual-project-rushabh-mehta/test_input_3.csv" "/home/rushabh/Desktop/individual-project-rushabh-mehta/result.csv"
+1115.94
+
+
+## Installations
+Need to have java 8 installed
+
+## Instructions to Build the Program
+
+### Compile the program
+At the root level (i.e. in the /individual-project-rushabh-mehta directory run the following command to compile the program)<br>
+`javac -d bin -sourcepath src src/OrderApp.java`
+
+### Run the program with commandline arguments
+Make sure you are in /individual-project-rushabh-mehta directory
+Then run the following commands to run the program <br>
+`cd bin`<br>
+`java OrderApp <path to item database csv> <path to card database csv> <path to order item csv> <path to result csv>`<br>
+Note: Specify all paths to all the csv files as absolute paths
