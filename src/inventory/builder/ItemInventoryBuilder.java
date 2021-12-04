@@ -7,10 +7,13 @@ import item.Item;
 import reader.CsvItemReader;
 import reader.CsvReader;
 
+import java.util.Map;
+
 public class ItemInventoryBuilder implements InventoryBuilder {
     private String dataPath;
     public ItemInventory build(){
-        System.out.println("Building inventory!");
+        System.out.println("===============");
+        System.out.println("Building Item Inventory!");
         ItemInventory inventory = ItemInventory.getInstance();
         CsvReader<Item> reader = new CsvItemReader();
         int count = 0;
@@ -22,12 +25,24 @@ public class ItemInventoryBuilder implements InventoryBuilder {
             inventory.add(item);
         }
         System.out.println(count+" items added.");
-        System.out.println("Inventory built!");
+        printItemInventory(inventory.getInventory());
+        System.out.println("Item Inventory built!");
+        System.out.println("===============");
         return inventory;
     }
 
     public ItemInventoryBuilder setDataPath(String dataPath) {
         this.dataPath = dataPath;
         return this;
+    }
+
+    public void printItemInventory(Map<String, Item> map){
+        for (Map.Entry<String, Item> set :
+                map.entrySet()) {
+
+            // Printing all elements of a Map
+            System.out.println(set.getKey() + " = "
+                    + set.getValue());
+        }
     }
 }

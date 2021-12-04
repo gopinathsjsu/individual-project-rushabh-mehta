@@ -14,6 +14,7 @@ You may choose up to 3 design patterns. Include a class diagram for your design.
 TODO
 Refactor code to support running from command line - DONE
 Display cards as intermediate results - 
+TEST program on test cases
 Create README.md with screenshots and instructions on how to build the program
 Add class diagram
 

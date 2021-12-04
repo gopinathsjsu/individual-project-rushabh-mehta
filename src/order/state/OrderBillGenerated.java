@@ -37,7 +37,16 @@ public class OrderBillGenerated extends OrderStateSup {
         }
         Writer writer = new CsvWriter();
         writer.write(Path.cardDatasetPath,message);
-        System.out.println("Card details added to database.");
+        System.out.println("Card details added to database");
+        System.out.println("Updated card database");
+        printCardInventory(cardInventory);
         orderProcessor.setCurrState(OrderStates.CARDDETAILSSAVED);
+    }
+
+    public void printCardInventory(Set<Card> set){
+        for (Card card :
+                set ) {
+            System.out.println(card);
+        }
     }
 }
