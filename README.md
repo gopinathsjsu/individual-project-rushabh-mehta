@@ -50,7 +50,7 @@ Same logic applies for the CardInventory (used to store the details of the cards
 ### Rationale for Iterator Design Pattern
 The iterator pattern is used to while parsing the dataset file to create a item inventory and card inventory. It abstracts away the location from where the data is being read and allows the location to change from a file to a database (in the future) with minimal code refactoring.
 ## Class Diagram
-
+![](static/Order.jpg)
 ##Screenshots for test cases
 
 ### Test case 1
