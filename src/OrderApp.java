@@ -30,7 +30,6 @@ public class OrderApp {
 
         OrderRestrictionBuilder orderRestrictionBuilder = new OrderRestrictionBuilder();
 
-        // TODO change restrictions to enum
         orderRestrictionBuilder.setRestriction("Essential",5).setRestriction("Luxury",3).setRestriction("Misc", 6).build();
 
         OrderProcessor orderProcessor = new OrderProcessor();

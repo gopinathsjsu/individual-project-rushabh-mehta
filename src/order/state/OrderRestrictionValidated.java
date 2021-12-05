@@ -17,7 +17,6 @@ public class OrderRestrictionValidated extends OrderStateSup{
         super(orderProcessor);
     }
     public void generateBill(Order order){
-        //TODO update inventory
         List<OrderItem> orderItems = order.getItems();
         ItemInventory itemInventory = ItemInventory.getInstance();
         Map<String, Item> inventory = itemInventory.getInventory();

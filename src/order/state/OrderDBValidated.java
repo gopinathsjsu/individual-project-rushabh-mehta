@@ -17,7 +17,6 @@ public class OrderDBValidated extends OrderStateSup{
         super(orderProcessor);
     }
     public void checkOrderRestrictions(Order order){
-        //TODO write to file and output item instead of category
         List<String> invalidCategories = new ArrayList<>();
         List<OrderItem> orderItems = order.getItems();
         Map<String, Integer> orderQuantities = new HashMap<>();

@@ -30,7 +30,6 @@ public class OrderRead extends OrderStateSup{
                 invalidItems.add(orderItem);
             }
         }
-        // TODO write to output file
         if(invalidItems.size()>0){
             StringBuilder invalidMessage = new StringBuilder();
             invalidMessage.append("Please correct quantities.");

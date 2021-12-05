@@ -10,7 +10,6 @@ public class OrderStateSup implements OrderState{
         this.orderProcessor = orderProcessor;
     }
 
-    //TODO handle failure cases
     @Override
     public Order read(String path) {
         System.out.println("Order already read!");

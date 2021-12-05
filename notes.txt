@@ -10,7 +10,7 @@ Input files will be CSV files.
 
 You may choose up to 3 design patterns. Include a class diagram for your design. All submissions should be committed to the assigned Github repo. Please include a README file with instructions on how to build and run your application.
 
-TODO
+
 Refactor code to support running from command line - DONE
 Display cards as intermediate results - DONE
 TEST program on test cases - DONE
@@ -19,7 +19,7 @@ Create README.md with instructions on how to build the program - DONE
 Explain Design Patterns Used - DONE
 Add screenshots of test cases - DONE
 Make TA contributor - DONE
-Add class diagram -
+Add class diagram - DONE
 
 javac -d bin -sourcepath src src/OrderApp.java
 
